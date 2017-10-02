@@ -1,4 +1,4 @@
-require "tlua"
+local tlua = require "tlua"
 
 do
   print("Should add a task")

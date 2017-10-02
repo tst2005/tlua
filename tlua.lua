@@ -2,17 +2,21 @@ local tablex = require "pl.tablex"
 local path   = require 'pl.path'
 
 --- Tlua is a simple task runner for Lua.
-module("tlua", package.seeall)
+--module("tlua", package.seeall)
+local tlua = {}
 
-_author             = "Norman Clarke"
-_year               = "2010"
-_version            = "0.1.0"
+--tlua._author             = "Norman Clarke"
+--tlua._year               = "2010"
+--tlua._version            = "0.1.0"
+tlua._MAINTAINER		= "TsT" -- ?
+tlua._AUTHOR		= "TsT"
+tlua._VERSION		= "0.2.0"
 
-default_file_name   = "LuaTasks.lua"
-default_tasks_dir   = ".tlua"
-default_task        = "help"
-descriptions        = {}
-system_descriptions = {}
+tlua.default_file_name   = "LuaTasks.lua"
+tlua.default_tasks_dir   = ".tlua"
+tlua.default_task        = "help"
+tlua.descriptions        = {}
+tlua.system_descriptions = {}
 local system_tasks  = {}
 local tasks         = {}
 local invocations   = {}
@@ -54,7 +58,7 @@ end
 --- Loads all task files from the current directory, and the default_tasks_dir.
 -- This function is used by the tlua runner, there's proabably no reason for
 -- you to ever invoke it in your own code.
-function load_files()
+function tlua.load_files()
 	tablex.map(function(file)
 		if path.exists(file) then
 			load_file(file)
@@ -75,7 +79,7 @@ end
 -- replaced with something less idiotic very soon.
 -- @param t An optional arg table. If omitted, the global arg table will be used.
 -- @return table
-function get_params(t)
+function tlua.get_params(t)
 	t = t or arg
 	local params = {}
 	for i, v in ipairs(t) do
@@ -96,7 +100,7 @@ end
 --- Invokes a Tlua task.
 -- @param name The task to invoke
 -- @param only_once If true, only invoke the task once
-function invoke(name, only_once)
+function tlua.invoke(name, only_once)
 	if not get_task(name) then
 		error(('No such task "%s"'):format(tostring(name)))
 	else
@@ -114,9 +118,9 @@ end
 --             but you can use any format you desire.
 -- @param description A description of the task.
 -- @param func The task function itself.
-function task(name, description, func)
+function tlua.task(name, description, func)
 	tasks[name]        = func
-	descriptions[name] = description
+	tlua.descriptions[name] = description
 end
 
 --- Add a tlua system task. You are free to expand tlua as you see fit, or override
@@ -125,7 +129,9 @@ end
 -- @param name The task name. System tasks should generally avoid any namespacing.
 -- @param description A description of the task.
 -- @param func The task function itself.
-function system_task(name, description, func)
+function tlua.system_task(name, description, func)
 	system_tasks[name]        = func
-	system_descriptions[name] = description
+	tlua.system_descriptions[name] = description
 end
+
+return tlua

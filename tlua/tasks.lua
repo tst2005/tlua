@@ -1,6 +1,7 @@
 local tablex = require "pl.tablex"
 
-module("tlua.tasks", package.seeall)
+--module("tlua.tasks", package.seeall)
+local tlua = require "tlua"
 
 local function print_tasks(descs)
 	local keys = tablex.keys(descs)
@@ -38,3 +39,4 @@ end
 
 tlua.system_task("list", "List all tasks", list)
 tlua.system_task("help", "Show this message", help)
+return true

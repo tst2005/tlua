@@ -1,4 +1,4 @@
-require "tlua"
+local tlua = require "tlua"
 
 local version = "1.0.0"
 local archive  = "tlua-" .. version
