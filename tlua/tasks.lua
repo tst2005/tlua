@@ -28,7 +28,7 @@ local function list()
 end
 
 local function help()
-	print(string.format("tlua version %s, copyright %s, %s", tlua._version, tlua._author, tlua._year))
+	print(string.format("tlua version %s, copyright %s, %s", tlua._VERSION, tlua._AUTHOR, tlua._YEAR))
 	print("Released under the MIT License\n")
 	print [[
 Tlua is a command-line Lua task runner. The following system-level
