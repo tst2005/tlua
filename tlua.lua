@@ -8,8 +8,9 @@ local tlua = {}
 --tlua._author             = "Norman Clarke"
 --tlua._year               = "2010"
 --tlua._version            = "0.1.0"
-tlua._MAINTAINER	= "TsT" -- ?
-tlua._AUTHOR		= "TsT"
+tlua._AUTHOR		= "Norman Clarke"
+tlua._MAINTAINER	= "TsT <tst2005@gmail.com>"
+tlua._YEAR		= "2017"
 tlua._VERSION		= "0.2.0"
 
 tlua.default_file_name   = "LuaTasks.lua"
