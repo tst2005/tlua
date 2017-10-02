@@ -98,7 +98,7 @@ By adding tasks to files in your ~/.tlua directory, you can save useful code
 snippets from the Lua Users Wiki. This makes tlua sort of like Luarocks, but
 for functions rather than applications:
 
-    require 'tlua'
+    local tlua = require 'tlua'
     local split = tlua.get_task("ricci.lakes.split")
 
 ## Installation
